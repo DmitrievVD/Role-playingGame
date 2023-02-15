@@ -20,6 +20,23 @@ public class Monk extends  Unit{
         this.combatSkill = combatSkill;
     }
 
+    public Monk(String name){
+        super(name);
+        this.motivation = 100;
+        this.combatSkill = 1;
+    }
+
+
+    @Override
+    public void step() {
+        super.step();
+    }
+
+    @Override
+    public String getInfo() {
+        return "Я монах";
+    }
+
     /**
      * Удар
      */

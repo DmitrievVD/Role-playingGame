@@ -14,6 +14,21 @@ public class Outlaw extends Unit {
         this.hide = hide;
     }
 
+    public Outlaw(String name){
+        super(name);
+        this.hide = false;
+    }
+
+
+    @Override
+    public void step() {
+        super.step();
+    }
+
+    @Override
+    public String getInfo() {
+        return "Я разбойник!";
+    }
 
     /**
      * Спрятаться

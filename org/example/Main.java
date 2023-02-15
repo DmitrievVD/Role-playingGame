@@ -1,23 +1,25 @@
 package org.example;
 
-import Units.Crossbowman;
-import Units.Outlaw;
-import Units.Spearman;
-import Units.Unit;
+import Units.*;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Unit unit = new Unit("Rob", 100, 1, 100, false);
-        unit.wakeUp();
-        System.out.println(unit);
 
-        Outlaw outlaw = new Outlaw("Jhon", 100, 1, 100,false, false);
-        outlaw.wakeUp();
-        outlaw.setHide();
-        System.out.println(outlaw);
 
-        Spearman spearman = new Spearman("Bob", 100, 1, 100, false, false);
-        spearman.needHelp();
+        Monk monk = new Monk(Unit.setName());
+        System.out.println(monk.getInfo());
+
+        ArrayList<Unit> arrayList = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) { // Создаем 10 случайных персонажей
+            Unit.createArreyUnit(arrayList, Unit.setClass());
+        }
+
+        for (int i = 0; i < arrayList.size(); i++) {
+            System.out.println(arrayList.get(i).getInfo());
+        }
 
 
 
