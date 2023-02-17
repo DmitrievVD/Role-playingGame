@@ -57,7 +57,10 @@ public class Main {
         arreyAll.sort(new Comparator<Unit>() {
             @Override
             public int compare(Unit o1, Unit o2) {
-                return o1.getSpeed() - o2.getSpeed();
+                if (o2.getSpeed() == o1.getSpeed()) {
+                    return o1.getHp() - o2.getHp();
+                }
+                return o2.getSpeed() - o1.getSpeed();
             }
         });
 

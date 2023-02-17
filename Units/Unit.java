@@ -1,7 +1,6 @@
 package Units;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 
 /**
@@ -116,5 +115,9 @@ public abstract class Unit implements GameInterface {
 
     public int getSpeed() {
         return speed;
+    }
+
+    public int getHp() {
+        return hp;
     }
 }
