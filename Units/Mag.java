@@ -13,11 +13,10 @@ public class Mag extends Unit{
     protected boolean magiсBook;
 
     public Mag(String name) {
-        super(name);
-        this.mana = 100;
-        this.magiсBook = true;
+        super(name, 80, 1, 50, false, 12, 80, 5, 10, 30, 0, 0);
+        this.mana = mana;
+        this.magiсBook = magiсBook;
     }
-
 
     @Override
     public void step() {

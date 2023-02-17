@@ -3,7 +3,7 @@ package Units;
 /**
  * Снайпер
  */
-public class Sniper extends Unit{
+public class Sniper extends Arreys{
     /**
      * Маскировка
      */
@@ -12,24 +12,19 @@ public class Sniper extends Unit{
      * Концентрация
      */
     protected int concentration;
-    /**
-     * Патроны
-     */
-    protected int cartriges;
+
 
 
     public Sniper(String name){
-        super(name);
-        this.disguise = 0;
+        super(name, 80, 1, 60, false, 40, 80, 5, 50, 80,2, 2, 10, 50);
+        this.disguise = 50;
         this.concentration = 10;
-        this.cartriges = 10;
     }
 
-    public Sniper(String name, int hp, int levl, int power, boolean step, int disguise, int concentration, int cartriges) {
-        super(name, hp, levl, power, step);
+    public Sniper(String name, int hp, int levl, int power, boolean step, int speed, int maxHp, int def, int damegeMin, int damegeMax, int x, int y, int cartriges, int distance, int disguise, int concentration) {
+        super(name, hp, levl, power, step, speed, maxHp, def, damegeMin, damegeMax, x, y, cartriges, distance);
         this.disguise = disguise;
         this.concentration = concentration;
-        this.cartriges = cartriges;
     }
 
     @Override

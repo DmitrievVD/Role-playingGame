@@ -1,5 +1,9 @@
 package Units;
 
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
 /**
  *  Монах
  */
@@ -14,18 +18,17 @@ public class Monk extends  Unit{
     int combatSkill;
 
 
-    public Monk(String name, int hp, int levl, int power, boolean step, int motivation, int combatSkill) {
-        super(name, hp, levl, power, step);
+    public Monk(String name) {
+        super(name, 100, 1, 100, false, 20, 100, 10, 10, 20, 1, 5);
+        this.motivation = 10;
+        this.combatSkill = 10;
+    }
+
+    public Monk(String name, int hp, int levl, int power, boolean step, int speed, int maxHp, int def, int damegeMin, int damegeMax, int x, int y, int motivation, int combatSkill) {
+        super(name, hp, levl, power, step, speed, maxHp, def, damegeMin, damegeMax, x, y);
         this.motivation = motivation;
         this.combatSkill = combatSkill;
     }
-
-    public Monk(String name){
-        super(name);
-        this.motivation = 100;
-        this.combatSkill = 1;
-    }
-
 
     @Override
     public void step() {
@@ -34,7 +37,7 @@ public class Monk extends  Unit{
 
     @Override
     public String getInfo() {
-        return "Я монах";
+        return "Я монах!!! ";
     }
 
     /**
@@ -49,5 +52,6 @@ public class Monk extends  Unit{
     public void getMotivation(){
 
     }
+
 
 }

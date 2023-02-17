@@ -2,7 +2,9 @@ package org.example;
 
 import Units.*;
 
+import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,15 +13,60 @@ public class Main {
         Monk monk = new Monk(Unit.setName());
         System.out.println(monk.getInfo());
 
-        ArrayList<Unit> arrayList = new ArrayList<>();
+        ArrayList<Unit> arrayList1 = new ArrayList<>();
+        arrayList1.sort(new Comparator<Unit>() {
+            @Override
+            public int compare(Unit o1, Unit o2) {
+                return o1.getSpeed() - o2.getSpeed();
+            }
+        });
 
         for (int i = 0; i < 10; i++) { // Создаем 10 случайных персонажей
-            Unit.createArreyUnit(arrayList, Unit.setClass());
+            Unit.createArreyUnit1(arrayList1, Unit.setClass());
         }
 
-        for (int i = 0; i < arrayList.size(); i++) {
-            System.out.println(arrayList.get(i).getInfo());
+        System.out.println("Команда 1:");
+
+        for (int i = 0; i < arrayList1.size(); i++) {
+
+            System.out.print(arrayList1.get(i).getInfo());
         }
+
+        ArrayList<Unit> arrayList2 = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) { // Создаем 10 случайных персонажей
+            Unit.createArreyUnit2(arrayList2, Unit.setClass());
+        }
+        System.out.println();
+        System.out.println("Команда 2:");
+
+
+        for (int i = 0; i < arrayList2.size(); i++) {
+            System.out.print(arrayList2.get(i).getInfo());
+        }
+
+        ArrayList arreyAll = new ArrayList<>(arrayList1);
+
+
+
+
+        for (int i = 0; i < arrayList2.size(); i++) {
+            arreyAll.add(arrayList2.get(i));
+        }
+
+        arreyAll.sort(new Comparator<Unit>() {
+            @Override
+            public int compare(Unit o1, Unit o2) {
+                return o1.getSpeed() - o2.getSpeed();
+            }
+        });
+
+        System.out.println();
+        System.out.println(arreyAll);
+
+
+
+
 
 
 

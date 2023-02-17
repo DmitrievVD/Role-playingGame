@@ -11,12 +11,12 @@ public class Spearman extends Unit{
 
 
     public Spearman(String name){
-        super(name);
+        super(name, 80, 1, 50, false, 12, 80, 5, 10, 30, 0, 0);
         this.keepInLine = false;
     }
 
-    public Spearman(String name, int hp, int levl, int power, boolean step, boolean keepInLine) {
-        super(name, hp, levl, power, step);
+    public Spearman(String name, int hp, int levl, int power, boolean step, int speed, int maxHp, int def, int damegeMin, int damegeMax, int x, int y, boolean keepInLine) {
+        super(name, hp, levl, power, step, speed, maxHp, def, damegeMin, damegeMax, x, y);
         this.keepInLine = keepInLine;
     }
 
