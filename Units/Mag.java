@@ -2,20 +2,11 @@ package Units;
 /**
  * Маги
  */
-public class Mag extends Unit{
-    /**
-     * Кол-во маны
-     */
-    protected int mana;
-    /**
-     * Магическая книга
-     */
-    protected boolean magiсBook;
+public class Mag extends Magic{
+
 
     public Mag(String name) {
-        super(name, 80, 1, 50, false, 12, 80, 5, 10, 30, 0, 0);
-        this.mana = mana;
-        this.magiсBook = magiсBook;
+        super(name, 9, 30, 12, -5, -5, 0, 0, 17, true);
     }
 
     @Override
@@ -28,11 +19,6 @@ public class Mag extends Unit{
         return "Я маг!!!";
     }
 
-    /**
-     * Произнести заклинание
-     */
-    public void custSpell(){
-        System.out.println("Кастует заклинание");
-    }
+
 
 }

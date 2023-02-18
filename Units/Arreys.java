@@ -4,11 +4,10 @@ public class Arreys extends Unit{
 
 
 
-    int cartriges, distance;
+    int shoot; // выстрелы
 
-    public Arreys(String name, int hp, int levl, int power, boolean step, int speed, int maxHp, int def, int damegeMin, int damegeMax, int x, int y, int cartriges, int distance) {
-        super(name, hp, levl, power, step, speed, maxHp, def, damegeMin, damegeMax, x, y);
-        this.cartriges = cartriges;
-        this.distance = distance;
+    public Arreys(String name, int speed, int maxHp, int def, int damegeMin, int damegeMax, int x, int y, int attack, int shoot) {
+        super(name, speed, maxHp, def, damegeMin, damegeMax, x, y, attack);
+        this.shoot = shoot;
     }
 }

@@ -3,26 +3,12 @@ package Units;
  * Крестьянин
  */
 public class Fermer extends Unit{
-    /**
-     * Еда
-     */
-    protected int food;
-    /**
-     * Боеприпасы
-     */
-    protected int cartriges;
+    protected boolean delivery;
 
 
-    public Fermer(String name){
-        super(name, 80, 1, 50, false, 12, 80, 5, 10, 30, 0, 0);
-        this.food = 20;
-        this.cartriges = 50;
-    }
-
-    public Fermer(String name, int hp, int levl, int power, boolean step, int speed, int maxHp, int def, int damegeMin, int damegeMax, int x, int y, int food, int cartriges) {
-        super(name, hp, levl, power, step, speed, maxHp, def, damegeMin, damegeMax, x, y);
-        this.food = food;
-        this.cartriges = cartriges;
+    public Fermer(String name) {
+        super(name, 3, 1, 1, 1, 1, 0, 0, 1);
+        this.delivery = true;
     }
 
     @Override
@@ -35,18 +21,5 @@ public class Fermer extends Unit{
         return "Я фермер!!";
     }
 
-    /**
-     * Дать боеприпасы
-     */
-    public int getCartriges() {
-        return 10;
-    }
 
-    /**
-     * Дать еду
-     */
-
-    public int getFood() {
-        return 10;
-    }
 }

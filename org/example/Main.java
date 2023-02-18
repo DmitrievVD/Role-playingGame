@@ -21,7 +21,7 @@ public class Main {
             }
         });
 
-        for (int i = 0; i < 10; i++) { // Создаем 10 случайных персонажей
+        for (int i = 0; i < 10; i++) { // Создаем 10 случайных персонажей команды 1
             Unit.createArreyUnit1(arrayList1, Unit.setClass());
         }
 
@@ -34,7 +34,7 @@ public class Main {
 
         ArrayList<Unit> arrayList2 = new ArrayList<>();
 
-        for (int i = 0; i < 10; i++) { // Создаем 10 случайных персонажей
+        for (int i = 0; i < 10; i++) { // Создаем 10 случайных персонажей команды 2
             Unit.createArreyUnit2(arrayList2, Unit.setClass());
         }
         System.out.println();
@@ -45,7 +45,7 @@ public class Main {
             System.out.print(arrayList2.get(i).getInfo());
         }
 
-        ArrayList arreyAll = new ArrayList<>(arrayList1);
+        ArrayList arreyAll = new ArrayList<>(arrayList1); // Список со всеми персонажами
 
 
 
@@ -54,7 +54,7 @@ public class Main {
             arreyAll.add(arrayList2.get(i));
         }
 
-        arreyAll.sort(new Comparator<Unit>() {
+        arreyAll.sort(new Comparator<Unit>() { // Сортируем весь список
             @Override
             public int compare(Unit o1, Unit o2) {
                 if (o2.getSpeed() == o1.getSpeed()) {
