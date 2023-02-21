@@ -1,6 +1,7 @@
 package Units;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -10,9 +11,16 @@ public abstract class Unit implements GameInterface {
     protected String name;
     protected int hp;
     protected int speed, attack;
-    protected int maxHp, def, damegeMin, damegeMax, x,y;
+    protected int maxHp, def, damegeMin, damegeMax;
 
 
+    static int s1 = 1;
+    static int s2 = 1;
+    static int t1 = 10;
+    static int t2 = 1;
+
+
+    public Vector2D pos;
 
     public Unit(String name, int speed, int maxHp, int def, int damegeMin, int damegeMax, int x, int y, int attack) {
         this.name = name;
@@ -22,8 +30,12 @@ public abstract class Unit implements GameInterface {
         this.def = def;
         this.damegeMin = damegeMin;
         this.damegeMax = damegeMax;
-        this.x = x;
-        this.y = y;
+        pos = new Vector2D(s1, s2);
+        s2 ++;
+        if (s2 > 10){
+            pos = new Vector2D(t1, t2);
+            t2++;
+        }
         this.attack = attack;
     }
 
@@ -38,12 +50,19 @@ public abstract class Unit implements GameInterface {
     public static void createArreyUnit1(ArrayList<Unit> arrayList, ClassesUnits classesUnits){ // Для создания Команды 1 (Список, setClass())
         switch (classesUnits){
             case Sniper -> arrayList.add(new Sniper(setName()));
-            case Mag -> arrayList.add(new Mag(setName()));
-            case Monk -> arrayList.add(new Mag(setName()));
-            case Fermer -> arrayList.add(new Fermer(setName()));
-            case Outlaw -> arrayList.add(new Outlaw(setName()));
+//            case Mag -> arrayList.add(new Mag(setName()));
+//            case Monk -> arrayList.add(new Mag(setName()));
+//            case Fermer -> arrayList.add(new Fermer(setName()));
+//            case Outlaw -> arrayList.add(new Outlaw(setName()));
+//            case Spearman -> arrayList.add(new Sniper(setName()));
+//            case Crossbowman -> arrayList.add(new Outlaw(setName()));
+
+            case Mag -> arrayList.add(new Sniper(setName()));
+            case Monk -> arrayList.add(new Sniper(setName()));
+            case Fermer -> arrayList.add(new Sniper(setName()));
+            case Outlaw -> arrayList.add(new Sniper(setName()));
             case Spearman -> arrayList.add(new Sniper(setName()));
-            case Crossbowman -> arrayList.add(new Outlaw(setName()));
+            case Crossbowman -> arrayList.add(new Sniper(setName()));
         }
     }
 
@@ -64,17 +83,14 @@ public abstract class Unit implements GameInterface {
     public String toString() {
         return "name='" + name + '\'' +
                 ", hp=" + hp +
-                ", speed=" + speed ;
+                ", speed=" + speed + "x: " + pos.x + " y: " + pos.y + "\n";
     }
 
-    @Override
-    public void step() {
 
-    }
 
     @Override
     public String getInfo() {
-        return "Я человек!";
+        return "Я человек!" + "HP: " + this.hp;
     }
 
 
@@ -84,5 +100,15 @@ public abstract class Unit implements GameInterface {
 
     public int getHp() {
         return hp;
+    }
+
+    @Override
+    public void step(ArrayList<Unit> t1, ArrayList<Unit> t2) {
+        GameInterface.super.step(t1, t2);
+    }
+
+
+    public void foo(){
+        System.out.println(this);
     }
 }

@@ -67,6 +67,10 @@ public class Main {
         System.out.println();
         System.out.println(arreyAll);
 
+//        arrayList1.get(3).foo();
+        System.out.println(arrayList1.get(0).getInfo());
+        arrayList1.get(0).step(arrayList1, arrayList2);
+
 
 
 

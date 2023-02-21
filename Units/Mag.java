@@ -10,11 +10,6 @@ public class Mag extends Magic{
     }
 
     @Override
-    public void step() {
-        super.step();
-    }
-
-    @Override
     public String getInfo() {
         return "Я маг!!!";
     }

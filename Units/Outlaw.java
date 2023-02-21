@@ -1,8 +1,7 @@
 package Units;
 
-import java.util.Iterator;
-import java.util.Spliterator;
-import java.util.function.Consumer;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Разбойник
@@ -14,10 +13,9 @@ public class Outlaw extends Unit {
         super(name, 6, 10, 3, 2, 4, 0, 0, 8);
     }
 
-    @Override
-    public void step() {
-        super.step();
-    }
+
+
+
 
     @Override
     public String getInfo() {
