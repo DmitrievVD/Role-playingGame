@@ -9,8 +9,8 @@ import java.util.List;
 public class Outlaw extends Unit {
 
 
-    public Outlaw(String name) {
-        super(name, 6, 10, 3, 2, 4, 0, 0, 8);
+    public Outlaw(String name, int x, int y) {
+        super(name, 6, 10, 3, 2, 4, x, y, 8);
     }
 
 

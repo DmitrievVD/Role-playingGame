@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Monk monk = new Monk(Unit.setName());
+        Monk monk = new Monk(Unit.setName(),11, 11);
         System.out.println(monk.getInfo());
 
         ArrayList<Unit> arrayList1 = new ArrayList<>();
@@ -22,7 +22,7 @@ public class Main {
         });
 
         for (int i = 0; i < 10; i++) { // Создаем 10 случайных персонажей команды 1
-            Unit.createArreyUnit1(arrayList1, Unit.setClass());
+            Unit.createArreyUnit1(arrayList1, Unit.setClass(), i);
         }
 
         System.out.println("Команда 1:");
@@ -35,7 +35,7 @@ public class Main {
         ArrayList<Unit> arrayList2 = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) { // Создаем 10 случайных персонажей команды 2
-            Unit.createArreyUnit2(arrayList2, Unit.setClass());
+            Unit.createArreyUnit2(arrayList2, Unit.setClass(), i);
         }
         System.out.println();
         System.out.println("Команда 2:");

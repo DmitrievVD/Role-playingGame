@@ -13,11 +13,7 @@ public abstract class Unit implements GameInterface {
     protected int speed, attack;
     protected int maxHp, def, damegeMin, damegeMax;
 
-
-    static int s1 = 1;
-    static int s2 = 1;
-    static int t1 = 10;
-    static int t2 = 1;
+    int i;
 
 
     public Vector2D pos;
@@ -30,12 +26,7 @@ public abstract class Unit implements GameInterface {
         this.def = def;
         this.damegeMin = damegeMin;
         this.damegeMax = damegeMax;
-        pos = new Vector2D(s1, s2);
-        s2 ++;
-        if (s2 > 10){
-            pos = new Vector2D(t1, t2);
-            t2++;
-        }
+        pos = new Vector2D(x, y);
         this.attack = attack;
     }
 
@@ -47,27 +38,27 @@ public abstract class Unit implements GameInterface {
         return ClassesUnits.values()[new Random().nextInt(ClassesUnits.values().length -1)];
     }
 
-    public static void createArreyUnit1(ArrayList<Unit> arrayList, ClassesUnits classesUnits){ // Для создания Команды 1 (Список, setClass())
+    public static void createArreyUnit1(ArrayList<Unit> arrayList, ClassesUnits classesUnits , int i){ // Для создания Команды 1 (Список, setClass())
         switch (classesUnits){
-            case Sniper -> arrayList.add(new Sniper(setName()));
-            case Mag -> arrayList.add(new Mag(setName()));
-            case Monk -> arrayList.add(new Mag(setName()));
-            case Fermer -> arrayList.add(new Fermer(setName()));
-            case Outlaw -> arrayList.add(new Outlaw(setName()));
-            case Spearman -> arrayList.add(new Sniper(setName()));
-            case Crossbowman -> arrayList.add(new Outlaw(setName()));
+            case Sniper -> arrayList.add(new Sniper(setName(), i, 0));
+            case Mag -> arrayList.add(new Mag (setName(), i, 0));
+            case Monk -> arrayList.add(new Mag(setName(), i, 0));
+            case Fermer -> arrayList.add(new Fermer(setName(), i, 0));
+            case Outlaw -> arrayList.add(new Outlaw(setName(), i, 0));
+            case Spearman -> arrayList.add(new Sniper(setName(), i, 0));
+            case Crossbowman -> arrayList.add(new Outlaw(setName(), i, 0));
         }
     }
 
-    public static void createArreyUnit2(ArrayList<Unit> arrayList, ClassesUnits classesUnits){ // Для создания Команды 2 (Список, setClass())
+    public static void createArreyUnit2(ArrayList<Unit> arrayList, ClassesUnits classesUnits, int i){ // Для создания Команды 2 (Список, setClass())
         switch (classesUnits){
-            case Monk -> arrayList.add(new Monk(setName()));
-            case Mag -> arrayList.add(new Monk(setName()));
-            case Fermer -> arrayList.add(new Fermer(setName()));
-            case Spearman -> arrayList.add(new Spearman(setName()));
-            case Outlaw -> arrayList.add(new Crossbowman(setName()));
-            case Crossbowman -> arrayList.add(new Crossbowman(setName()));
-            case Sniper -> arrayList.add(new Spearman(setName()));
+            case Monk -> arrayList.add(new Monk(setName(), i, 10));
+            case Mag -> arrayList.add(new Monk(setName(), i, 10));
+            case Fermer -> arrayList.add(new Fermer(setName(), i, 10));
+            case Spearman -> arrayList.add(new Spearman(setName(), i, 10));
+            case Outlaw -> arrayList.add(new Crossbowman(setName(), i, 10));
+            case Crossbowman -> arrayList.add(new Crossbowman(setName(), i, 10));
+            case Sniper -> arrayList.add(new Spearman(setName(), i, 10));
         }
     }
 

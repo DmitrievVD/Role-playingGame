@@ -9,8 +9,8 @@ import java.util.List;
 public class Sniper extends Arreys{
 
 
-    public Sniper(String name) {
-        super(name, 9, 15, 10, 8, 10, 0, 0, 12, 32);
+    public Sniper(String name, int x, int y) {
+        super(name, 9, 15, 10, 8, 10, x, y, 12, 32);
     }
 
 

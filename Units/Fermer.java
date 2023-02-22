@@ -10,8 +10,8 @@ public class Fermer extends Unit{
     protected boolean delivery;
 
 
-    public Fermer(String name) {
-        super(name, 3, 1, 1, 1, 1, 0, 0, 1);
+    public Fermer(String name, int x, int y) {
+        super(name, 3, 1, 1, 1, 1, x, y, 1);
         this.delivery = true;
     }
 

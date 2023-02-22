@@ -3,7 +3,7 @@ package Units;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Magic extends Unit{
+public abstract class Magic extends Unit{
     protected boolean magic;
 
     public Magic(String name, int speed, int maxHp, int def, int damegeMin, int damegeMax, int x, int y, int attack, boolean magic) {

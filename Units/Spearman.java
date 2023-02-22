@@ -9,8 +9,8 @@ import java.util.List;
 public class Spearman extends Unit{
 
 
-    public Spearman(String name) {
-        super(name, 4, 10, 5, 1, 3, 0, 0, 4);
+    public Spearman(String name, int x, int y) {
+        super(name, 4, 10, 5, 1, 3, x, y, 4);
     }
 
 
