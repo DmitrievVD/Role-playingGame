@@ -50,19 +50,12 @@ public abstract class Unit implements GameInterface {
     public static void createArreyUnit1(ArrayList<Unit> arrayList, ClassesUnits classesUnits){ // Для создания Команды 1 (Список, setClass())
         switch (classesUnits){
             case Sniper -> arrayList.add(new Sniper(setName()));
-//            case Mag -> arrayList.add(new Mag(setName()));
-//            case Monk -> arrayList.add(new Mag(setName()));
-//            case Fermer -> arrayList.add(new Fermer(setName()));
-//            case Outlaw -> arrayList.add(new Outlaw(setName()));
-//            case Spearman -> arrayList.add(new Sniper(setName()));
-//            case Crossbowman -> arrayList.add(new Outlaw(setName()));
-
-            case Mag -> arrayList.add(new Sniper(setName()));
-            case Monk -> arrayList.add(new Sniper(setName()));
-            case Fermer -> arrayList.add(new Sniper(setName()));
-            case Outlaw -> arrayList.add(new Sniper(setName()));
+            case Mag -> arrayList.add(new Mag(setName()));
+            case Monk -> arrayList.add(new Mag(setName()));
+            case Fermer -> arrayList.add(new Fermer(setName()));
+            case Outlaw -> arrayList.add(new Outlaw(setName()));
             case Spearman -> arrayList.add(new Sniper(setName()));
-            case Crossbowman -> arrayList.add(new Sniper(setName()));
+            case Crossbowman -> arrayList.add(new Outlaw(setName()));
         }
     }
 
@@ -81,9 +74,7 @@ public abstract class Unit implements GameInterface {
 
     @Override
     public String toString() {
-        return "name='" + name + '\'' +
-                ", hp=" + hp +
-                ", speed=" + speed + "x: " + pos.x + " y: " + pos.y + "\n";
+        return String.format("Имя: %3s | HP: %2d  |  Speed: %d,  | Def: %d,  | (X,Y): (%d,%d)\n", this.name, this.hp, this.speed, this.def, this.pos.x, this.pos.y);
     }
 
 

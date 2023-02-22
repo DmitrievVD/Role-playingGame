@@ -15,4 +15,9 @@ public class Crossbowman extends Arreys{ // Арбалетчик
     public void step(ArrayList<Unit> t1, ArrayList<Unit> t2) {
         super.step(t1, t2);
     }
+
+    @Override
+    public String toString() {
+        return String.format("Арбалетчик: %s  |  HP: %d  |  Speed: %d  |  Shoot: %d  | ATK: %d-%d  |  DEF: %d  |  (X,Y): (%d,%d)\n", this.name, this.hp, this.speed, this.shoot, this.damegeMin, this.damegeMax, this.def, this.pos.x, this.pos.y);
+    }
 }

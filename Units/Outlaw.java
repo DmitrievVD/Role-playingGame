@@ -22,7 +22,8 @@ public class Outlaw extends Unit {
         return "Я разбойник!";
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return String.format("Разбойник: %4s  |  HP: %d  |  Speed: %d  |  ATK: %d-%d  |  DEF: %d  |  (X,Y): (%d,%d)\n", this.name, this.hp, this.speed, this.damegeMin, this.damegeMax, this.def, this.pos.x, this.pos.y);
+    }
 }

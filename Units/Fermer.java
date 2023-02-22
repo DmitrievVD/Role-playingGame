@@ -26,5 +26,8 @@ public class Fermer extends Unit{
         return "Я фермер!!";
     }
 
-
+    @Override
+    public String toString() {
+        return String.format("Фермер: %s  |  HP: %d  |  Speed: %d  |  ATK: %d-%d  |  DEF: %d  |  (X,Y): (%d,%d)\n", this.name, this.hp, this.speed, this.damegeMin, this.damegeMax, this.def, this.pos.x, this.pos.y);
+    }
 }

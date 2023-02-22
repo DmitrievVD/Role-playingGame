@@ -24,7 +24,8 @@ public class Spearman extends Unit{
         return "Я копейщик";
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return String.format("Копейщик: %1s  |  HP: %d  |  Speed: %d  |  ATK: %d-%d  |  DEF: %d  |  (X,Y): (%d,%d)\n", this.name, this.hp, this.speed, this.damegeMin, this.damegeMax, this.def, this.pos.x, this.pos.y);
+    }
 }
