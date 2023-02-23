@@ -7,10 +7,15 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Main {
+
+    static void createSniper(ArrayList<Unit> arrayList, ClassesUnits classesUnits , int i){ // Это для проверки степа на снайпера
+        arrayList.add(new Sniper(Unit.getName(), i, 1));
+    }
+
     public static void main(String[] args) {
 
 
-        Monk monk = new Monk(Unit.setName(),11, 11);
+        Monk monk = new Monk(Unit.getName(),11, 11);
         System.out.println(monk.getInfo());
 
         ArrayList<Unit> arrayList1 = new ArrayList<>();
@@ -22,7 +27,8 @@ public class Main {
         });
 
         for (int i = 0; i < 10; i++) { // Создаем 10 случайных персонажей команды 1
-            Unit.createArreyUnit1(arrayList1, Unit.setClass(), i);
+//            Unit.createArreyUnit1(arrayList1, Unit.setClass(), i);
+            createSniper(arrayList1, Unit.setClass(), i); // Для создания команды снайперов
         }
 
         System.out.println("Команда 1:");
@@ -70,14 +76,6 @@ public class Main {
 //        arrayList1.get(3).foo();
         System.out.println(arrayList1.get(0).getInfo());
         arrayList1.get(0).step(arrayList1, arrayList2);
-
-
-
-
-
-
-
-
 
 
     }
