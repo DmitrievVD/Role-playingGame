@@ -5,62 +5,43 @@ import Units.*;
 import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
 
-    static void createSniper(ArrayList<Unit> arrayList, ClassesUnits classesUnits , int i){ // Это для проверки степа на снайпера
-        arrayList.add(new Sniper(Unit.getName(), i, 1));
-    }
+    static final int UNITS = 10;
 
     public static void main(String[] args) {
 
 
-        Monk monk = new Monk(Unit.getName(),11, 11);
-        System.out.println(monk.getInfo());
+        ArrayList<Unit> holyTeam = new ArrayList<>();
+        ArrayList<Unit> darkTeam = new ArrayList<>();
+        ArrayList<Unit> allTeam = new ArrayList<>();
+        Scanner user_input = new Scanner(System.in);
+        createTeam(holyTeam, 0, 1);
+        createTeam(darkTeam, 3, 10);
+        allTeam.addAll(holyTeam);
+        allTeam.addAll(darkTeam);
+        sortedTeam(allTeam);
 
-        ArrayList<Unit> arrayList1 = new ArrayList<>();
-        arrayList1.sort(new Comparator<Unit>() {
-            @Override
-            public int compare(Unit o1, Unit o2) {
-                return o1.getSpeed() - o2.getSpeed();
+
+        System.out.println(allTeam);
+
+        while (true){
+            for (Unit human: allTeam) {
+                if ( holyTeam.contains(human)) human.step(holyTeam, darkTeam);
+                else human.step(darkTeam, holyTeam);
             }
-        });
-
-        for (int i = 0; i < 10; i++) { // Создаем 10 случайных персонажей команды 1
-//            Unit.createArreyUnit1(arrayList1, Unit.setClass(), i);
-            createSniper(arrayList1, Unit.setClass(), i); // Для создания команды снайперов
+            user_input.nextLine();
+            System.out.println(allTeam);
         }
 
-        System.out.println("Команда 1:");
 
-        for (int i = 0; i < arrayList1.size(); i++) {
+    }
 
-            System.out.print(arrayList1.get(i).getInfo());
-        }
-
-        ArrayList<Unit> arrayList2 = new ArrayList<>();
-
-        for (int i = 0; i < 10; i++) { // Создаем 10 случайных персонажей команды 2
-            Unit.createArreyUnit2(arrayList2, Unit.setClass(), i);
-        }
-        System.out.println();
-        System.out.println("Команда 2:");
-
-
-        for (int i = 0; i < arrayList2.size(); i++) {
-            System.out.print(arrayList2.get(i).getInfo());
-        }
-
-        ArrayList arreyAll = new ArrayList<>(arrayList1); // Список со всеми персонажами
-
-
-
-
-        for (int i = 0; i < arrayList2.size(); i++) {
-            arreyAll.add(arrayList2.get(i));
-        }
-
-        arreyAll.sort(new Comparator<Unit>() { // Сортируем весь список
+    static void sortedTeam(ArrayList<Unit> team){
+        team.sort(new Comparator<Unit>() { // Сортируем весь список
             @Override
             public int compare(Unit o1, Unit o2) {
                 if (o2.getSpeed() == o1.getSpeed()) {
@@ -69,79 +50,36 @@ public class Main {
                 return o2.getSpeed() - o1.getSpeed();
             }
         });
-
-        System.out.println();
-        System.out.println(arreyAll);
-
-//        arrayList1.get(3).foo();
-        System.out.println(arrayList1.get(0).getInfo());
-        arrayList1.get(0).step(arrayList1, arrayList2);
-
-
     }
-}
-//крестьянин
-//          Имя;
-//          здоровье;
-//          спать;
-//          Ходить;
-/*          Бегать
-//        Возделывание полей;
-//        Питание;
-//          Выносливость;
-//          под
-//
-//разбойник
-//          Имя;
-//          здоровье;
-//          спать;
-//          Ходить;
-/*          Бегать
-//        жестокость;
-//        разбой;
-//          Выносливость;
-//
-//
-//
-//снайпер
-//          Имя;
-//          здоровье;
-//          спать;
-//          Ходить;
-//          Выносливость;
-//         Боеприпасы
-//          Бегать;
-меткость;
-маскировка;
-замирание;
- */
 
-//колдун
-//          Имя;
-//          здоровье;
-//          спать;
-//          Ходить;
-/*          Бегать;
-            мана
-            артифакты
-//          Выносливость;
- */
-//копейщик
-//          Имя;
-//          здоровье;
-//          спать;
-//          Ходить;
-/*          Бегать;
-//          Выносливость;
-//          владение копьем
-//          умение держать строй
-//арбалетчик
-////          Имя;
-////          здоровье;
-////          спать;
-////          Ходить;
-///*          Бегать;
-////          Выносливость;
-//            меткость
-//            боеприпасы
- */
+    static void createTeam(ArrayList team, int offset, int posY){
+        for (int i = 1; i <= UNITS; i++) {
+            int rnd = new Random().nextInt(4) + offset;
+            switch (rnd){
+                case (0):
+                    team.add(new Sniper(Unit.getName(),i, posY));
+                    break;
+                case (1):
+                    team.add(new Outlaw(Unit.getName(),i, posY));
+                    break;
+                case (2):
+                    team.add(new Mag(Unit.getName(),i, posY));
+                    break;
+                case (3):
+                    team.add(new Fermer(Unit.getName(),i, posY));
+                    break;
+                case (4):
+                    team.add(new Crossbowman(Unit.getName(),i, posY));
+                    break;
+                case (5):
+                    team.add(new Monk(Unit.getName(),i, posY));
+                    break;
+                case (6):
+                    team.add(new Spearman(Unit.getName(),i, posY));
+                    break;
+            }
+        }
+    }
+
+
+}

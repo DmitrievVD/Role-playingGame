@@ -14,7 +14,14 @@ public abstract class Magic extends Unit{
 
 
     @Override
-    public void step(ArrayList t1, ArrayList t2) {
+    public void step(ArrayList<Unit> t1, ArrayList<Unit> t2) {
+        if (state.equals("Die")) return;
+        for (int i = 0; i < t1.size(); i++) {
+            if (t1.get(i).hp < t1.get(i).maxHp){
+                t1.get(i).getDamage(damegeMax);
+                break;
+            }
+        }
 
     }
 }

@@ -18,12 +18,12 @@ public class Fermer extends Unit{
 
     @Override
     public void step(ArrayList<Unit> t1, ArrayList<Unit> t2) {
-
+        if (!state.equals("Die")) state = "Stand";
     }
 
     @Override
     public String getInfo() {
-        return "Я фермер!!";
+        return "Фермер";
     }
 
     @Override

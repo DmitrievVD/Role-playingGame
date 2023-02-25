@@ -13,8 +13,10 @@ public abstract class Unit implements GameInterface {
     protected int speed, attack;
     protected int maxHp, def, damegeMin, damegeMax;
 
+    protected String state;
 
-    public Vector2D pos;
+
+    protected Vector2D pos;
 
     public Unit(String name, int speed, int maxHp, int def, int damegeMin, int damegeMax, int x, int y, int attack) {
         this.name = name;
@@ -26,47 +28,17 @@ public abstract class Unit implements GameInterface {
         this.damegeMax = damegeMax;
         pos = new Vector2D(x, y);
         this.attack = attack;
+        state = "Stand";
     }
 
-    public static String getName(){ // Дать случайное имя
-        return String.valueOf(Names.values()[new Random().nextInt(Names.values().length-1)]);
+    public static String getName() { // Дать случайное имя
+        return String.valueOf(Names.values()[new Random().nextInt(Names.values().length - 1)]);
     }
-
-    public static ClassesUnits setClass(){ // Получаем случайного персонажа
-        return ClassesUnits.values()[new Random().nextInt(ClassesUnits.values().length -1)];
-    }
-
-    public static void createArreyUnit1(ArrayList<Unit> arrayList, ClassesUnits classesUnits , int i){ // Для создания Команды 1 (Список, setClass())
-        switch (classesUnits){
-            case Sniper -> arrayList.add(new Sniper(getName(), i, 1));
-            case Mag -> arrayList.add(new Mag (getName(), i, 1));
-            case Monk -> arrayList.add(new Mag(getName(), i, 1));
-            case Fermer -> arrayList.add(new Fermer(getName(), i, 1));
-            case Outlaw -> arrayList.add(new Outlaw(getName(), i, 1));
-            case Spearman -> arrayList.add(new Sniper(getName(), i, 1));
-            case Crossbowman -> arrayList.add(new Outlaw(getName(), i, 1));
-
-        }
-    }
-
-    public static void createArreyUnit2(ArrayList<Unit> arrayList, ClassesUnits classesUnits, int i){ // Для создания Команды 2 (Список, setClass())
-        switch (classesUnits){
-            case Monk -> arrayList.add(new Monk(getName(), i, 10));
-            case Mag -> arrayList.add(new Monk(getName(), i, 10));
-            case Fermer -> arrayList.add(new Fermer(getName(), i, 10));
-            case Spearman -> arrayList.add(new Spearman(getName(), i, 10));
-            case Outlaw -> arrayList.add(new Crossbowman(getName(), i, 10));
-            case Crossbowman -> arrayList.add(new Crossbowman(getName(), i, 10));
-            case Sniper -> arrayList.add(new Spearman(getName(), i, 10));
-        }
-    }
-
 
     @Override
     public String toString() {
         return String.format("Имя: %3s | HP: %2d  |  Speed: %d,  | Def: %d,  | (X,Y): (%d,%d)\n", this.name, this.hp, this.speed, this.def, this.pos.x, this.pos.y);
     }
-
 
 
     @Override
@@ -85,11 +57,25 @@ public abstract class Unit implements GameInterface {
 
     @Override
     public void step(ArrayList<Unit> t1, ArrayList<Unit> t2) {
-        GameInterface.super.step(t1, t2);
+
     }
 
-
-    public void foo(){
-        System.out.println(this);
+    public int findNearest(ArrayList<Unit> team) {
+        double min = 100;
+        int index = 0;
+        for (int i = 0; i < team.size(); i++) {
+            if (min > pos.distance(team.get(i).pos) & !team.get(i).state.equals("Die")) {
+                index = i;
+                min = pos.distance(team.get(i).pos);
+            }
+        }
+        return index;
     }
+
+    protected void getDamage(float damage){
+        hp -= damage;
+        if (hp > maxHp) hp = maxHp;
+        if (hp < 0) state = "Die";
+    }
+
 }

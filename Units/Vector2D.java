@@ -11,9 +11,9 @@ public class Vector2D {
         this.y = y;
     }
 
-    public static int distance(Unit u1, Unit u2){
-      return (int) Math.sqrt((u1.pos.x - u2.pos.x)^2 + (u1.pos.y - u2.pos.y)^2);
-    };
+    protected Double distance(Vector2D oponent){
+        return Math.sqrt(Math.pow(x - oponent.x,2) + Math.pow(y - oponent.y,2));
+    }
 
 
 }
