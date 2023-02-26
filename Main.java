@@ -1,5 +1,3 @@
-package org.example;
-
 import Units.*;
 
 import javax.sound.midi.Soundbank;

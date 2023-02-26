@@ -21,6 +21,7 @@ public abstract class Arreys extends Unit{
     public void step(ArrayList<Unit> t1, ArrayList<Unit> t2) {
         if (state.equals("DIe") || shoot == 0) return;
         int target = findNearest(t2);
+        System.out.println(name + " " + getInfo() + "  ->  " + t2.get(target).name +" "+ t2.get(target).getInfo());
         float damdge = (t2.get(target).def - attack > 0) ?
                 damegeMin : (t2.get(target).def - attack < 0) ?
                 damegeMax : ( (damegeMax+damegeMin) / 2);
@@ -28,6 +29,7 @@ public abstract class Arreys extends Unit{
 
         for (int i = 0; i < t1.size(); i++) {
             if (( t1.get(i).getInfo().equals("Фермер")) && t1.get(i).state.equals("Stand")){
+                System.out.println("Фермер " + t1.get(i).name + " занят");
                 t1.get(i).state = "Busy";
                 return;
             }
