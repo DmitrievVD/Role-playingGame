@@ -37,7 +37,7 @@ public abstract class Unit implements GameInterface {
 
     @Override
     public String toString() {
-        return name +
+        return "👷" +
                 " H:" + Math.round(hp) +
                 " D:" + def +
                 " A:" + attack +

@@ -38,5 +38,13 @@ public abstract class Arreys extends Unit{
         shoot --;
         }
 
-
+    @Override
+    public String toString() {
+        return "🏹" +
+                " H:" + Math.round(hp) +
+                " D:" + def +
+                " A:" + attack +
+                " Dmg:" + Math.round(Math.abs((damageMin+damageMax)/2)) + " " +
+                state;
+    }
 }

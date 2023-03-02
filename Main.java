@@ -42,14 +42,14 @@ public class Main {
                 if (human.getState() == "Die") dieHolyTeam++;
             }
             if (dieHolyTeam == 10){
-                System.out.println("Green winner!");
+                System.out.println("******************************************Green winner!******************************************");
                 break;
             } else dieHolyTeam = 0;
             for (Unit human: darkTeam) {
                 if (human.getState() == "Die") dieDarkTeam++;
             }
             if (dieDarkTeam == 10){
-                System.out.println("Blue winner!");
+                System.out.println("******************************************Blue winner!******************************************");
                 break;
             } else dieDarkTeam = 0;
         }

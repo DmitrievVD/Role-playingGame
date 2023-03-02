@@ -37,6 +37,15 @@ public abstract class  Warrior extends Unit{
             pos.x--;
             return;
         }
+    }
 
+    @Override
+    public String toString() {
+        return "\uD83D\uDC82" +
+                " H:" + Math.round(hp) +
+                " D:" + def +
+                " A:" + attack +
+                " Dmg:" + Math.round(Math.abs((damageMin+damageMax)/2)) + " " +
+                state;
     }
 }

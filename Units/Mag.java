@@ -11,7 +11,7 @@ public class Mag extends Magic{
 
     @Override
     public String getInfo() {
-        return "Колдун";
+        return "Волшебник";
     }
 
 
