@@ -50,35 +50,35 @@ public class View {
         for (int i = 0; i < l[0]*2; i++) System.out.print("_");
         System.out.println("");
         System.out.print(top10 + "    ");
-        System.out.print("Blue side");
+        System.out.print(AnsiColors.ANSI_BLUE + "Blue side" + AnsiColors.ANSI_RESET);
         for (int i = 0; i < l[0]-9; i++) System.out.print(" ");
-        System.out.println(":\tGreen side");
+        System.out.println(":\t" + AnsiColors.ANSI_GREEN + "Green side" + AnsiColors.ANSI_RESET);
         for (int i = 1; i < 11; i++) {
             System.out.print(getChar(1, i));
         }
         System.out.print("|    ");
-        System.out.print(Main.holyTeam.get(0));
+        System.out.print(AnsiColors.ANSI_BLUE + Main.holyTeam.get(0) + AnsiColors.ANSI_RESET);
         tabSetter(Main.holyTeam.get(0).toString().length(), l[0]);
-        System.out.println(Main.darkTeam.get(0));
+        System.out.println(AnsiColors.ANSI_GREEN + Main.darkTeam.get(0) + AnsiColors.ANSI_RESET);
         System.out.println(midl10);
 
-        for (int i = 2; i < 9; i++) {
+        for (int i = 2; i < 10; i++) {
             for (int j = 1; j < 11; j++) {
                 System.out.print(getChar(i, j));
             }
             System.out.print("|    ");
-            System.out.print(Main.holyTeam.get(i-1));
+            System.out.print(AnsiColors.ANSI_BLUE + Main.holyTeam.get(i-1) + AnsiColors.ANSI_RESET);
             tabSetter(Main.holyTeam.get(i-1).toString().length(), l[0]);
-            System.out.println(Main.darkTeam.get(i-1));
+            System.out.println(AnsiColors.ANSI_GREEN + Main.darkTeam.get(i-1) + AnsiColors.ANSI_RESET);
             System.out.println(midl10);
         }
         for (int j = 1; j < 11; j++) {
             System.out.print(getChar(10, j));
         }
         System.out.print("|    ");
-        System.out.print(Main.holyTeam.get(9));
+        System.out.print(AnsiColors.ANSI_BLUE + Main.holyTeam.get(9) + AnsiColors.ANSI_RESET);
         tabSetter(Main.holyTeam.get(9).toString().length(), l[0]);
-        System.out.println(Main.darkTeam.get(9));
+        System.out.println(AnsiColors.ANSI_GREEN + Main.darkTeam.get(9) + AnsiColors.ANSI_RESET);
         System.out.println(bottom10);
     }
 }
